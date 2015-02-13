@@ -15,6 +15,7 @@ uses
   FMX.Radio,
   FMX.Radio.Shared,
   FMX.Types,
+  FMX.Radio.BassAac,
   FMX.Forms,
   Fmx.Platform,
   FMX.Platform.Win,
@@ -110,6 +111,7 @@ begin
   BASS_StreamFree(FActiveChannel);
   Progress := 0;
 
+
   FActiveChannel := BASS_StreamCreateURL(PChar(FStreamURL),
                                          0,
                                          BASS_STREAM_BLOCK or
@@ -118,6 +120,18 @@ begin
                                          BASS_UNICODE,
                                          nil,
                                          nil);
+  if FActiveChannel = 0
+    then begin
+          FActiveChannel := BASS_AAC_StreamCreateURL(PChar(FStreamURL),
+                                                 0,
+                                                 BASS_STREAM_BLOCK or
+                                                 BASS_STREAM_STATUS or
+                                                 BASS_STREAM_AUTOFREE or
+                                                 BASS_UNICODE,
+                                                 nil,
+                                                 nil);
+        end;
+
   if FActiveChannel = 0 then
   begin
     ResultCode := Bass_ErrorGetCode;
