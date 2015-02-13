@@ -7,7 +7,7 @@ uses
   Windows,
 {$ELSE}
   SysUtils,
-  system.IOUtils,
+  FMX.Dialogs,
 {$ENDIF}
   FMX.Radio.Bass;
 const
@@ -25,19 +25,44 @@ const
   BASS_CTYPE_STREAM_MP4        = $10b01; // MP4
 
 
+const
+{$IFDEF MSWINDOWS}
+  szBassAccDLL = 'bass_aac.dll';
+{$ENDIF}
+{$IFDEF LINUX}
+  szBassAccDLL = 'libbass_aac.so';
+{$ENDIF}
+{$IFDEF MACOS}
+{$IFDEF IOS}
+  szBassAccDLL = 'libbass_aac.so';
+{$ELSE}
+  szBassAccDLL = 'libbass_aac.dylib';
+{$ENDIF}
+{$ENDIF}
+{$IFDEF ANDROID}
+  szBassAccDLL = 'libbass_aac.so';
+{$ENDIF}
+
+
+
 
 var
-BASS_AAC_StreamCreateFile: function (mem:BOOL; f:Pointer; offset,length:Cardinal; flags:Cardinal): HSTREAM; {$IFDEF MSWINDOWS}stdcall;{$ENDIF} {$IFNDEF MSWINDOWS} cdecl;{$ENDIF}
-BASS_AAC_StreamCreateURL : function (URL:Pointer; offset:Cardinal; flags:Cardinal; proc:DOWNLOADPROC; user:Pointer): HSTREAM; {$IFDEF MSWINDOWS}stdcall;{$ENDIF} {$IFNDEF MSWINDOWS} cdecl;{$ENDIF}
-BASS_AAC_StreamCreateFileUser : function (system,flags:Cardinal; var procs:BASS_FILEPROCS; user:Pointer): HSTREAM; {$IFDEF MSWINDOWS}stdcall;{$ENDIF} {$IFNDEF MSWINDOWS} cdecl;{$ENDIF}
-BASS_MP4_StreamCreateFile : function (mem:BOOL; f:Pointer; offset,length:QWORD; flags:Cardinal): HSTREAM; {$IFDEF MSWINDOWS}stdcall;{$ENDIF} {$IFNDEF MSWINDOWS} cdecl;{$ENDIF}
-BASS_MP4_StreamCreateFileUser : function (system,flags:Cardinal; var procs:BASS_FILEPROCS; user:Pointer): HSTREAM;{$IFDEF MSWINDOWS}stdcall;{$ENDIF} {$IFNDEF MSWINDOWS} cdecl;{$ENDIF}
-szBassAccDLL : string;
-FBassAccDLL : Cardinal;
+FBassAccDLL : THandle;
+
+BASS_AAC_StreamCreateURL      : function (URL:Pointer; offset:Cardinal; flags:Cardinal; proc:DOWNLOADPROC; user:Pointer): HSTREAM; {$IFDEF MSWINDOWS}stdcall {$ELSE}cdecl{$ENDIF};
+BASS_AAC_StreamCreateFile     : function (mem:BOOL; f:Pointer; offset,length:Cardinal; flags:Cardinal): HSTREAM;  {$IFDEF MSWINDOWS}stdcall {$ELSE}cdecl{$ENDIF};
+BASS_AAC_StreamCreateFileUser : function (system,flags:Cardinal; var procs:BASS_FILEPROCS; user:Pointer): HSTREAM; {$IFDEF MSWINDOWS}stdcall {$ELSE}cdecl{$ENDIF};
+BASS_MP4_StreamCreateFile     : function (mem:BOOL; f:Pointer; offset,length:QWORD; flags:Cardinal): HSTREAM;  {$IFDEF MSWINDOWS}stdcall {$ELSE}cdecl{$ENDIF};
+BASS_MP4_StreamCreateFileUser : function (system,flags:Cardinal; var procs:BASS_FILEPROCS; user:Pointer): HSTREAM; {$IFDEF MSWINDOWS}stdcall {$ELSE}cdecl{$ENDIF};
+
 
 procedure LoadDynamicBassAACDLL;
-implementation
+function BASSAAC_FOLDER: String;
 
+implementation
+{$IFNDEF MSWINDOWS}
+uses system.IOUtils;
+{$ENDIF}
 
 function BASSAAC_FOLDER: String;
 begin
@@ -48,35 +73,19 @@ begin
 {$ENDIF}
 end;
 
-
 procedure LoadDynamicBassAACDLL;
 begin
-{$IFDEF MSWINDOWS}
-  szBassAccDLL := 'bass_aac.dll';
-{$ENDIF}
-{$IFDEF LINUX}
-  szBassAccDLL := 'libbass_aac.so';
-{$ENDIF}
-{$IFDEF MACOS}
-{$IFDEF IOS}
-  szBassAccDLL := 'libbass_aac.so';
-{$ELSE}
-  szBassAccDLL := 'libbass_aac.dylib';
-{$ENDIF}
-{$ENDIF}
-{$IFDEF ANDROID}
-  szBassAccDLL := 'libbass_aac.so';
-{$ENDIF}
 
    FBassAccDLL := LoadLibrary(PChar(BASSAAC_FOLDER+szBassAccDLL));
-   if FBassAccDLL<>0
-    then begin
-         @BASS_AAC_StreamCreateFile      := GetProcAddress(FBassAccDLL,'BASS_AAC_StreamCreateFile');
-         @BASS_AAC_StreamCreateURL       := GetProcAddress(FBassAccDLL,'BASS_AAC_StreamCreateURL');
-         @BASS_AAC_StreamCreateFileUser  := GetProcAddress(FBassAccDLL,'BASS_AAC_StreamCreateFileUser');
-         @BASS_MP4_StreamCreateFile      := GetProcAddress(FBassAccDLL,'BASS_MP4_StreamCreateFile');
-         @BASS_MP4_StreamCreateFileUser  := GetProcAddress(FBassAccDLL,'BASS_MP4_StreamCreateFileUser');
-        end;
+    if FBassAccDLL = 0 then
+      Exit;
+
+         BASS_AAC_StreamCreateFile      := GetProcAddress(FBassAccDLL,'BASS_AAC_StreamCreateFile');
+         BASS_AAC_StreamCreateURL       := GetProcAddress(FBassAccDLL,'BASS_AAC_StreamCreateURL');
+         BASS_AAC_StreamCreateFileUser  := GetProcAddress(FBassAccDLL,'BASS_AAC_StreamCreateFileUser');
+         BASS_MP4_StreamCreateFile      := GetProcAddress(FBassAccDLL,'BASS_MP4_StreamCreateFile');
+         BASS_MP4_StreamCreateFileUser  := GetProcAddress(FBassAccDLL,'BASS_MP4_StreamCreateFileUser');
+
 End;
 
 initialization
