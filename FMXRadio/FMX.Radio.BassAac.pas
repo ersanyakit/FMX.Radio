@@ -79,7 +79,6 @@ begin
         end;
 End;
 
-
 initialization
 LoadDynamicBassAACDLL;
 
