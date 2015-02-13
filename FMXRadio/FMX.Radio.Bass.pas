@@ -1097,6 +1097,7 @@ procedure LoadBassDLL;
 var
   DocDir: string;
 begin
+
   FBassDLL := LoadLibrary(PChar(BASS_FOLDER + bassdll));
   if FBassDLL = 0 then
     Exit;
@@ -1222,6 +1223,7 @@ end;
 initialization
 
 LoadBassDLL;
+
 
 finalization
 
