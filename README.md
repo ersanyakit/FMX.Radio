@@ -3,6 +3,10 @@ Delphi XE7 Firemonkey Radio Player
 Stream data from HTTP and FTP servers (inc. Shoutcast, Icecast & Icecast2), with IDN and proxy server support and adjustable buffering 
 
 #FMX.Radio.Windows
+<pre>
+1. Download bass24.zip from http://www.un4seen.com (direct link http://uk.un4seen.com/files/bass24.zip ).
+2. Extract the archive somewhere, copy extracted bass.dll to your project output directory.
+</pre>
 
 #FMX.Radio.Android
 Project -> Deployment -> Add Files
