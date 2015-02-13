@@ -80,7 +80,7 @@ Begin
   FRadyo.SetStatusProc(StatusProc);
   FRadyo.SetBroadcastInfoProc(BroadcastInfoProc);
   FRadyo.SetBroadcastMetaProc(BroadcastMetaProc);
-  FRadyo.SetStreamURL('http://46.20.3.201:80/listen.pls');
+  FRadyo.SetStreamURL('http://sc.powergroup.com.tr:80/PowerTurk/aac/128/home');
 
   if FRadyo.Play=True
     then begin

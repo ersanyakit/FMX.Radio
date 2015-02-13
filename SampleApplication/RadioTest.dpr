@@ -10,10 +10,16 @@ uses
   System.StartUpCopy,
   FMX.Forms,
   uMain in 'uMain.pas' {Form1},
-  FMX.Radio       in '..\FMXRadio\FMX.Radio.pas',
-  FMX.Radio.Bass  in '..\FMXRadio\FMX.Radio.Bass.pas',
-  {$IFDEF ANDROID}   FMX.Radio.Android in '..\FMXRadio\FMX.Radio.Android.pas', {$ENDIF}
-  {$IFDEF MSWINDOWS} FMX.Radio.Windows in '..\FMXRadio\FMX.Radio.Windows.pas', {$ENDIF}
+
+  FMX.Radio in '..\FMXRadio\FMX.Radio.pas',
+  FMX.Radio.Bass in '..\FMXRadio\FMX.Radio.Bass.pas',
+  FMX.Radio.BassAac in '..\FMXRadio\FMX.Radio.BassAac.pas',
+  {$IFDEF ANDROID}
+  FMX.Radio.Android in '..\FMXRadio\FMX.Radio.Android.pas' ,
+  {$ENDIF }
+  {$IFDEF MSWINDOWS}
+  FMX.Radio.Windows in '..\FMXRadio\FMX.Radio.Windows.pas',
+  {$ENDIF }
   FMX.Radio.Shared in '..\FMXRadio\FMX.Radio.Shared.pas';
 
 {$R *.res}
