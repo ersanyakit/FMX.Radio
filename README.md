@@ -5,6 +5,21 @@ Stream data from HTTP and FTP servers (inc. Shoutcast, Icecast & Icecast2), with
 #FMX.Radio.Windows
 
 #FMX.Radio.Android
+Project -> Deployment -> Add Files
+1 : Library->Android->armeabi
+	a : libbass.so
+	b : libbass_aac.so	
+	c : libbassflac.so
+Remote Path : library\lib\armeabi\
+
+2 : Library->Android->x86
+	a : libbass.so
+	b : libbass_aac.so	
+	c : libbassflac.so
+Remote Path : library\lib\x86\
+
+Make sure library files remote path name, must be added in the Deployment window.
+
 
 #FMX.Radio.IOS
 
