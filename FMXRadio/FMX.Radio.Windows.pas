@@ -13,6 +13,7 @@ interface
 uses
   WinApi.Windows,
   FMX.Radio,
+  SysUtils,
   FMX.Radio.Shared,
   FMX.Types,
   FMX.Radio.BassAac,
@@ -120,17 +121,17 @@ begin
                                          BASS_UNICODE,
                                          nil,
                                          nil);
-  if FActiveChannel = 0
-    then begin
-          FActiveChannel := BASS_AAC_StreamCreateURL(PChar(FStreamURL),
-                                                 0,
-                                                 BASS_STREAM_BLOCK or
-                                                 BASS_STREAM_STATUS or
-                                                 BASS_STREAM_AUTOFREE or
-                                                 BASS_UNICODE,
-                                                 nil,
-                                                 nil);
-        end;
+//  if FActiveChannel = 0
+//    then begin
+//          FActiveChannel := BASS_AAC_StreamCreateURL(PChar(FStreamURL),
+//                                                 0,
+//                                                 BASS_STREAM_BLOCK or
+//                                                 BASS_STREAM_STATUS or
+//                                                 BASS_STREAM_AUTOFREE or
+//                                                 BASS_UNICODE,
+//                                                 nil,
+//                                                 nil);
+//        end;
 
   if FActiveChannel = 0 then
   begin
@@ -239,7 +240,10 @@ begin
                FMX.Platform.Win.WindowHandleToPlatform(iHandle).Wnd,
                nil)
   then begin
-          BASS_PluginLoad(PChar(BASS_FOLDER + 'libbass.dll'), 0 or BASS_UNICODE);
+        if FileExists(DLL_BASS_ACC)
+          then begin
+                  BASS_PluginLoad(PWideChar(DLL_BASS_ACC),BASS_UNICODE);
+               end;
           BASS_SetConfig(BASS_CONFIG_NET_PLAYLIST, 1);
           BASS_SetConfig(BASS_CONFIG_NET_PREBUF, 0);
         end;

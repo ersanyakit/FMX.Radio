@@ -13,6 +13,8 @@ const
   strUnknown:String='Unknown!';
   strCompleted:String='Completed!';
 
+  DLL_BASS_ACC : string = 'bass_aac.dll';
+
 type
     TStatusProc        = procedure(pszData : string;Progress:Integer);
     TBroadcastInfoProc = procedure(pszBroadcastName,pszBitRate:string);
