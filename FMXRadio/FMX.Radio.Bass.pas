@@ -1228,3 +1228,4 @@ finalization
 FreeLibrary(FBassDLL);
 
 end.
+
