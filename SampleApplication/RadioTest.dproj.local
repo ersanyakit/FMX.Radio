@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.321,=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.970,D:\Calismalarim\Mobil_Radyo\RadyoComponent\Fmx.Radio.Android.pas=D:\Calismalarim\Mobil_Radyo\RadyoComponent\Fmx.Radio.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.187,=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.911,=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.478,=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.475,D:\Calismalarim\Mobil_Radyo\RadyoComponent\FMX.Radio.Windows.pas=D:\Calismalarim\Mobil_Radyo\RadyoComponent\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.509,=D:\Calismalarim\Mobil_Radyo\RadyoComponent\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.166,=D:\Calismalarim\Mobil_Radyo\RadyoComponent\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.380,=D:\Calismalarim\Mobil_Radyo\RadyoComponent\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.214,D:\Calismalarim\Mobil_Radyo\RadyoComponent\uMain.fmx=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.198,=D:\Calismalarim\Mobil_Radyo\RadyoComponent\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.891,=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.132,D:\Calismalarim\Mobil_Radyo\RadyoComponent\FMX.Radio.Shared.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.940,=D:\Calismalarim\Mobil_Radyo\RadyoComponent\FMXRadio\FMX.Radio.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.628,D:\Calismalarim\Mobil_Radyo\RadyoComponent\FMX.Radio.Shared.pas=D:\Calismalarim\Mobil_Radyo\RadyoComponent\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.214,D:\Calismalarim\Mobil_Radyo\RadyoComponent\uMain.pas=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.095,D:\Calismalarim\Mobil_Radyo\RadyoComponent\RadioTest.dproj=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.846,D:\Calismalarim\Mobil_Radyo\RadyoComponent\FMX.Radio.pas=D:\Calismalarim\Mobil_Radyo\RadyoComponent\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.858,=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.870,=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.122,=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.174,D:\Calismalarim\Mobil_Radyo\RadyoComponent\Fmx.Radio.pas=D:\Calismalarim\Mobil_Radyo\RadyoComponent\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.677,D:\Calismalarim\Mobil_Radyo\RadyoComponent\FMX.Radio.pas=</Transaction>
+  </Transactions>  <MobileDevice>4300a3b43f6c50a9</MobileDevice>
+</BorlandProject>

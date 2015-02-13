@@ -1,0 +1,87 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 440
+  ClientWidth = 466
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  DesignerMasterStyle = 0
+  object Button1: TButton
+    Position.X = 16.000000000000000000
+    Position.Y = 336.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Play'
+    OnClick = Button1Click
+  end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    Position.X = 16.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 433.000000000000000000
+    Size.Height = 257.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+  end
+  object Button2: TButton
+    Position.X = 104.000000000000000000
+    Position.Y = 336.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Pause'
+    OnClick = Button2Click
+  end
+  object TrackBar1: TTrackBar
+    Orientation = Horizontal
+    Position.X = 16.000000000000000000
+    Position.Y = 280.000000000000000000
+    Size.Width = 433.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Value = 21.513002395629880000
+    OnTracking = TrackBar1Tracking
+  end
+  object CheckBox1: TCheckBox
+    Position.X = 16.000000000000000000
+    Position.Y = 304.000000000000000000
+    Size.Width = 433.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = 'Pause Radio On Incoming Calls'
+    OnChange = CheckBox1Change
+  end
+  object ProgressBar1: TProgressBar
+    Align = Bottom
+    Orientation = Horizontal
+    Margins.Left = 15.000000000000000000
+    Margins.Right = 15.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 15.000000000000000000
+    Position.Y = 383.000000000000000000
+    Size.Width = 436.000000000000000000
+    Size.Height = 20.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Label1: TLabel
+    Align = Bottom
+    Margins.Left = 15.000000000000000000
+    Margins.Right = 15.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 15.000000000000000000
+    Position.Y = 413.000000000000000000
+    Size.Width = 436.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Label1'
+  end
+end
