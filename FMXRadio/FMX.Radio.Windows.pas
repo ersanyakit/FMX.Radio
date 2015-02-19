@@ -234,6 +234,12 @@ begin
     FBroadcastInfoProc := nil;
     FBroadcastMetaProc := nil;
 
+    if not Assigned(Bass_Init)
+      then begin
+              Exit;
+           end;
+
+
   if BASS_Init(-1,
                44100,
                0,

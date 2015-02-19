@@ -11,6 +11,7 @@ unit FMX.Radio;
 
 interface
 uses FMX.Radio.Shared,
+     FMX.Radio.Bass,
      FMX.Types,
      FMX.Forms;
 
@@ -71,13 +72,22 @@ uses
 constructor TFMXRadio.Create;
 begin
   inherited;
+  if BASS_Available=false
+    then begin
+            Exit;
+         end;
+
   FPlatformRadio := TFMXPlatformRadio.Create;
 end;
 
 procedure TFMXRadio.SetOwner(AOwner : TFmxObject);
 begin
   FOwner := AOwner;
-  InitRadio(TForm(FOwner).Handle);
+   if BASS_Available = true
+    then begin
+            InitRadio(TForm(FOwner).Handle);
+         end;
+
 end;
 
 destructor TFMXRadio.Destroy;
@@ -89,7 +99,10 @@ end;
 
 procedure TFMXRadio.SetVolume(const AValue:Single);
 begin
-   FPlatformRadio.SetVolume(AValue);
+  if Assigned(FPlatformRadio)
+     then begin
+             FPlatformRadio.SetVolume(AValue);
+          end;
 end;
 
 function  TFMXRadio.GetVolume: Single;
@@ -99,22 +112,34 @@ end;
 
 function TFMXRadio.Play:Boolean;
 begin
+  if Not Assigned(FPlatformRadio)
+    then begin
+            Result := false;
+            Exit;
+         end;
    Result := FPlatformRadio.Play;
 end;
 
 procedure TFMXRadio.Pause;
 begin
-   FPlatformRadio.Pause;
+  if  Assigned(FPlatformRadio)
+    then begin
+            FPlatformRadio.Pause;
+          end;
 end;
 
 procedure TFMXRadio.SetStreamURL(AUrl : string);
 begin
-   FPlatformRadio.SetStreamURL(AUrl);
+  if  Assigned(FPlatformRadio)
+    then begin
+           FPlatformRadio.SetStreamURL(AUrl);
+         end;
 end;
 
 procedure TFMXRadio.SetStatusProc(AProc:TStatusProc);
 begin
-  if Assigned(AProc)
+  if (Assigned(AProc) and
+      Assigned(FPlatformRadio))
     then begin
             FPlatformRadio.SetStatusProc(AProc);
          end;
@@ -122,7 +147,8 @@ end;
 
 procedure TFMXRadio.SetBroadcastInfoProc(AProc:TBroadcastInfoProc);
 begin
-  if Assigned(AProc)
+  if (Assigned(AProc) and
+      Assigned(FPlatformRadio))
     then begin
             FPlatformRadio.SetBroadcastInfoProc(AProc);
          end;
@@ -130,7 +156,8 @@ end;
 
 procedure TFMXRadio.SetBroadcastMetaProc(AProc:TBroadcastMetaProc);
 begin
-  if Assigned(AProc)
+  if (Assigned(AProc) and
+      Assigned(FPlatformRadio))
     then begin
             FPlatformRadio.SetBroadcastMetaProc(AProc);
          end;
@@ -138,17 +165,26 @@ end;
 
 procedure TFMXRadio.PauseRadioOnIncomingCalls(APauseOnIncomingCalls:Boolean);
 begin
-   FPlatformRadio.PauseRadioOnIncomingCalls(APauseOnIncomingCalls);
+  if Assigned(FPlatformRadio)
+    then begin
+           FPlatformRadio.PauseRadioOnIncomingCalls(APauseOnIncomingCalls);
+         end;
 end;
 
 procedure TFMXRadio.InitRadio(iHandle:TWindowHandle);
 begin
-  FPlatformRadio.InitRadio(iHandle);
+  if Assigned(FPlatformRadio)
+    then begin
+            FPlatformRadio.InitRadio(iHandle);
+         end;
 end;
 
 procedure TFMXRadio.UnloadRadio;
 begin
-  FPlatformRadio.UnloadRadio;
+  if Assigned(FPlatformRadio)
+    then begin
+            FPlatformRadio.UnloadRadio;
+         end;
 end;
 
 end.
