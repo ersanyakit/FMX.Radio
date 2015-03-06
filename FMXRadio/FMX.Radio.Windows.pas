@@ -13,10 +13,8 @@ interface
 uses
   WinApi.Windows,
   FMX.Radio,
-  SysUtils,
   FMX.Radio.Shared,
   FMX.Types,
-  FMX.Radio.BassAac,
   FMX.Forms,
   Fmx.Platform,
   FMX.Platform.Win,
@@ -112,7 +110,6 @@ begin
   BASS_StreamFree(FActiveChannel);
   Progress := 0;
 
-
   FActiveChannel := BASS_StreamCreateURL(PChar(FStreamURL),
                                          0,
                                          BASS_STREAM_BLOCK or
@@ -121,18 +118,6 @@ begin
                                          BASS_UNICODE,
                                          nil,
                                          nil);
-//  if FActiveChannel = 0
-//    then begin
-//          FActiveChannel := BASS_AAC_StreamCreateURL(PChar(FStreamURL),
-//                                                 0,
-//                                                 BASS_STREAM_BLOCK or
-//                                                 BASS_STREAM_STATUS or
-//                                                 BASS_STREAM_AUTOFREE or
-//                                                 BASS_UNICODE,
-//                                                 nil,
-//                                                 nil);
-//        end;
-
   if FActiveChannel = 0 then
   begin
     ResultCode := Bass_ErrorGetCode;
@@ -234,22 +219,13 @@ begin
     FBroadcastInfoProc := nil;
     FBroadcastMetaProc := nil;
 
-    if not Assigned(Bass_Init)
-      then begin
-              Exit;
-           end;
-
-
   if BASS_Init(-1,
                44100,
                0,
                FMX.Platform.Win.WindowHandleToPlatform(iHandle).Wnd,
                nil)
   then begin
-        if FileExists(DLL_BASS_ACC)
-          then begin
-                  BASS_PluginLoad(PWideChar(DLL_BASS_ACC),BASS_UNICODE);
-               end;
+          BASS_PluginLoad(PChar(BASS_FOLDER + 'libbass.dll'), 0 or BASS_UNICODE);
           BASS_SetConfig(BASS_CONFIG_NET_PLAYLIST, 1);
           BASS_SetConfig(BASS_CONFIG_NET_PREBUF, 0);
         end;
