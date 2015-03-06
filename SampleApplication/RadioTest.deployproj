@@ -4,14 +4,6 @@
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>
     <ItemGroup Condition="'$(Platform)'=='Android'">
-        <DeployFile Include="..\FMXRadio\Library\Android\armeabi\libbassflac.so" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>RadioTest\library\lib\armeabi\</RemoteDir>
-            <RemoteName>libbassflac.so</RemoteName>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="Android\Debug\libRadioTest.so" Condition="'$(Config)'=='Debug'">
             <RemoteDir>RadioTest\library\lib\armeabi-v7a\</RemoteDir>
             <RemoteName>libRadioTest.so</RemoteName>
@@ -93,6 +85,14 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="c:\program files (x86)\embarcadero\studio\15.0\lib\android\release\classes.dex" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>RadioTest\classes\</RemoteDir>
+            <RemoteName>classes.dex</RemoteName>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="..\FMXRadio\Library\Android\x86\libbass_aac.so" Condition="'$(Config)'=='Release'">
             <RemoteDir>RadioTest\</RemoteDir>
             <RemoteName>libbass_aac.so</RemoteName>
@@ -136,6 +136,14 @@
         <DeployFile Include="$(BDS)\bin\Artwork\Android\FM_SplashImage_640x480.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>RadioTest\res\drawable-large\</RemoteDir>
             <RemoteName>splash_image.png</RemoteName>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="c:\program files (x86)\embarcadero\studio\15.0\lib\android\release\armeabi\libnative-activity.so" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>RadioTest\library\lib\armeabi\</RemoteDir>
+            <RemoteName>libRadioTest.so</RemoteName>
             <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -245,6 +253,30 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="c:\program files (x86)\embarcadero\studio\15.0\lib\android\release\x86\libnative-activity.so" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>RadioTest\library\lib\x86\</RemoteDir>
+            <RemoteName>libRadioTest.so</RemoteName>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="c:\program files (x86)\embarcadero\studio\15.0\lib\android\release\mips\libnative-activity.so" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>RadioTest\library\lib\mips\</RemoteDir>
+            <RemoteName>libRadioTest.so</RemoteName>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="..\FMXRadio\Library\Android\armeabi\libbassflac.so" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>RadioTest\library\lib\armeabi\</RemoteDir>
+            <RemoteName>libbassflac.so</RemoteName>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='iOSDevice'">
         <DeployFile Include="..\FMXRadio\Library\Android\x86\libbassflac.so" Condition="'$(Config)'=='Debug'">
@@ -255,17 +287,17 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\FMXRadio\Library\Android\x86\libbass_aac.so" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\FMXRadio\Library\Android\x86\libbassflac.so" Condition="'$(Config)'=='Release'">
             <RemoteDir>RadioTest.app\</RemoteDir>
-            <RemoteName>libbass_aac.so</RemoteName>
+            <RemoteName>libbassflac.so</RemoteName>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\FMXRadio\Library\Android\x86\libbassflac.so" Condition="'$(Config)'=='Release'">
+        <DeployFile Include="..\FMXRadio\Library\Android\x86\libbass_aac.so" Condition="'$(Config)'=='Debug'">
             <RemoteDir>RadioTest.app\</RemoteDir>
-            <RemoteName>libbassflac.so</RemoteName>
+            <RemoteName>libbass_aac.so</RemoteName>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -452,6 +484,14 @@
         </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='OSX32'">
+        <DeployFile Include="..\FMXRadio\Library\Android\armeabi\libbass.so" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>RadioTest.app\Contents\MacOS\</RemoteDir>
+            <RemoteName>libbass.so</RemoteName>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="..\FMXRadio\Library\Android\armeabi\libbassflac.so" Condition="'$(Config)'=='Debug'">
             <RemoteDir>RadioTest.app\Contents\MacOS\</RemoteDir>
             <RemoteName>libbassflac.so</RemoteName>
@@ -543,14 +583,6 @@
         <DeployFile Include="..\FMXRadio\Library\Android\armeabi\libbass_aac.so" Condition="'$(Config)'=='Debug'">
             <RemoteDir>RadioTest.app\Contents\MacOS\</RemoteDir>
             <RemoteName>libbass_aac.so</RemoteName>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
-        <DeployFile Include="..\FMXRadio\Library\Android\armeabi\libbass.so" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>RadioTest.app\Contents\MacOS\</RemoteDir>
-            <RemoteName>libbass.so</RemoteName>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -672,7 +704,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\FMXRadio\Library\Android\x86\libbass_aac.so" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\FMXRadio\Library\Android\armeabi\libbass_aac.so" Condition="'$(Config)'=='Debug'">
             <RemoteDir>RadioTest\</RemoteDir>
             <RemoteName>libbass_aac.so</RemoteName>
             <Operation>0</Operation>
@@ -680,7 +712,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\FMXRadio\Library\Android\armeabi\libbass_aac.so" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="..\FMXRadio\Library\Android\x86\libbass_aac.so" Condition="'$(Config)'=='Debug'">
             <RemoteDir>RadioTest\</RemoteDir>
             <RemoteName>libbass_aac.so</RemoteName>
             <Operation>0</Operation>

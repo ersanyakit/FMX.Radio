@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.095,C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Calismalarim\Mobil_Radyo\RadyoComponent\RadioTest.dproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.214,C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Unit1.fmx=D:\Calismalarim\Mobil_Radyo\RadyoComponent\uMain.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.095,D:\Calismalarim\Mobil_Radyo\RadyoComponent\RadioTest.dproj=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.214,D:\Calismalarim\Mobil_Radyo\RadyoComponent\uMain.fmx=C:\Users\ErsanYakit\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
   </Transactions>
 	<MobileDevice>4300a3b43f6c50a9</MobileDevice>
 </BorlandProject>
