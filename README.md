@@ -24,6 +24,13 @@ Project -> Deployment -> Add Files
 	c : libbassflac.so
 	Remote Path : library\lib\x86\
 </pre>
+<pre>
+3 : Library->Android->armeabi-v7a
+	a : libbass.so
+	b : libbass_aac.so	
+	c : libbassflac.so
+	Remote Path : library\lib\armeabi-v7a\
+</pre>
 Make sure library files remote path name, must be added in the Deployment window.
 
 
